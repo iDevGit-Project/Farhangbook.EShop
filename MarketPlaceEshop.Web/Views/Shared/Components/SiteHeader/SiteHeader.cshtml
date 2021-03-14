@@ -1,0 +1,127 @@
+﻿@using MarketPlaceEshop.DataAccessLayer.Entities.SiteAPI
+@{
+    var siteSetting = ViewBag.siteSetting as SiteSetting;
+}
+
+<header>
+    <div class="main_header">
+        <div class="container">
+            <!--header top start-->
+            <div class="header_top">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 col-md-5">
+                        <div class="antomi_message">
+                            <p style="font-weight: 600">@siteSetting.SiteName</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-7">
+                        <div class="header_top_settings text-right">
+                            <ul>
+                                <li>پشتیبانی: <a class="ltr-text">@siteSetting.Phone </a></li>
+                                <li>پیگیری سفارشات</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--header top start-->
+            <!--header middel start-->
+            <div class="header_middle sticky-header">
+                <div class="row align-items-center">
+                    <div class="col-lg-2 col-md-6">
+                        <div class="logo">
+                            <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-12">
+                        <nav>
+                            @await Component.InvokeAsync("MenuBar")
+                        </nav>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="header_configure_area">
+
+                            <div class="mini_cart_wrapper">
+                                <a href="javascript:void(0)">
+                                    <i class="fa fa-shopping-bag"></i>
+                                    <span class="cart_price"><span> 600,000 ریال </span> <i class="ion-ios-arrow-down"></i></span>
+                                    <span class="cart_count">1</span>
+
+                                </a>
+                                <!--mini cart-->
+                                <div class="mini_cart">
+                                    <div class="mini_cart_inner">
+                                        <div class="cart_item">
+                                            <div class="cart_img">
+                                                <a href="#"><img src="assets/img/s-product/product.jpg" alt=""></a>
+                                            </div>
+                                            <div class="cart_info">
+                                                <a href="#">نگرشی کاربردی به دیات</a>
+                                                <p>تعداد: 1 × <span> 600,000 ریال </span></p>
+                                            </div>
+                                            <div class="cart_remove">
+                                                <a href="#"><i class="ion-android-close"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mini_cart_table">
+                                        <div class="cart_total">
+                                            <span>جمع اجزا:</span>
+                                            <span class="price"> 600,000 ریال </span>
+                                        </div>
+                                        <div class="cart_total mt-10">
+                                            <span>جمع کل:</span>
+                                            <span class="price"> 600,000 ریال </span>
+                                        </div>
+                                    </div>
+                                    <div class="mini_cart_footer">
+                                        <div class="cart_button">
+                                            <a href="cart.html">مشاهده سبد</a>
+                                        </div>
+                                        <div class="cart_button">
+                                            <a href="checkout.html">پرداخت</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!--mini cart end-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--header middel end-->
+            <!--header bottom satrt-->
+            <div class="header_bottom">
+                <div class="row align-items-center">
+                    <div class="column1 col-lg-3 col-md-6">
+                        <div class="categories_menu">
+                            <div class="categories_title">
+                                <h2 class="categori_toggle">دسته بندی ها</h2>
+                            </div>
+                            <div class="categories_menu_toggle">
+                                <ul>
+                                    @await Component.InvokeAsync("SideBarMenu")
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column2 col-lg-8 ">
+                        <div class="search_container">
+                            <form action="#">
+                                @await Component.InvokeAsync("SearchBar")
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="column3 col-lg-3 col-md-6">
+                        <div class="header_bigsale">
+                            <a href="#">می خواهم فروشنده شوم</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--header bottom end-->
+        </div>
+    </div>
+</header>

@@ -1,0 +1,148 @@
+﻿@model MarketPlaceEshop.DataAccessLayer.DataTransferObjectDTOs.Account.DTO_EditProfile
+@using MarketPlaceEshop.DataAccessLayer.Entities.SiteAPI
+@{
+    var siteSetting = ViewBag.siteSetting as SiteSetting;
+}
+@{
+    ViewData["Title"] = "ویرایش پروفایل کاربری";
+    Layout = "~/Areas/UserPanel/Views/Shared/_UserPanelLayout.cshtml";
+}
+
+@section scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <partial name="_AuthenticationCaptchaScripts" />
+
+}
+
+<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+    <!-- BEGIN HEADER INNER -->
+    @await Component.InvokeAsync("UserPanel_TopBar")
+    <!-- END HEADER INNER -->
+</div>
+<!-- END HEADER -->
+<!-- BEGIN HEADER & CONTENT DIVIDER -->
+<div class="clearfix"> </div>
+<!-- END HEADER & CONTENT DIVIDER -->
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar-wrapper">
+        <!-- BEGIN SIDEBAR -->
+        @await Component.InvokeAsync("UserPanel_SideBar")
+        <!-- END SIDEBAR -->
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <div class="page-content">
+            <!-- BEGIN PAGE HEAD-->
+            <div class="page-head">
+                <!-- BEGIN PAGE TITLE -->
+                <div class="page-title">
+
+                </div>
+                <!-- END PAGE TITLE -->
+            </div>
+            <!-- END PAGE HEAD-->
+            <!-- BEGIN PAGE BREADCRUMB -->
+            <ul class="page-breadcrumb breadcrumb">
+                <li>
+                    <a role="button">تنظیمات کاربری</a>
+                    <i class="fa fa-circle"></i>
+                </li>
+                <li>
+                    <span class="active">ویرایش پروفایل کاربری</span>
+                </li>
+            </ul>
+            <!-- END PAGE BREADCRUMB -->
+            <!-- BEGIN PAGE BASE CONTENT -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="profile-content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="portlet light bordered">
+                                    <div class="portlet-title tabbable-line">
+                                        <div class="caption caption-md">
+                                            <span class="caption-subject font-green-sharp bold uppercase">ویرایش پروفایل کاربری</span>
+                                        </div>
+                                        <ul class="nav nav-tabs">
+                                            <li class="active">
+                                                <a href="#tab_1_1" data-toggle="tab">اطلاعات فردی</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <div class="tab-content">
+                                            <!-- PERSONAL INFO TAB -->
+                                            <div class="tab-pane active" id="tab_1_1">
+                                                <form asp-area="UserPanel" asp-controller="Account" asp-action="EditProfile" enctype="multipart/form-data">
+                                                    <div class="form-group">
+                                                        <label class="control-label">نام</label>
+                                                        <input type="text" asp-for="FirstName" autofocus="autofocus" class="form-control" />
+                                                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label">نام خانوادگی</label>
+                                                        <input type="text" asp-for="LastName" class="form-control" />
+                                                        <span asp-validation-for="LastName" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                            <div class="fileinput-new thumbnail" style="width: 128px; height: 128px;">
+                                                                <img src="@(!string.IsNullOrEmpty(Model.Avatar) ? MarketPlaceEshop.Application.Utilities.PathExtension.UserAvatarOrigin + Model.Avatar : MarketPlaceEshop.Application.Utilities.PathExtension.UserAvatarDefaultOrigin)" alt="تصویر آواتار حساب کاربری">
+                                                            </div>
+                                                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 128px; max-height: 128px;"> </div>
+                                                            <div>
+                                                                <span class="btn btn-info btn-file">
+                                                                    <span class="fileinput-new"> انتخاب تصویر پروفایل </span>
+                                                                    <span class="fileinput-exists"> تغییر تصویر </span>
+                                                                    <input type="file" name="avatarImage" value="">
+                                                                </span>
+                                                                <a href="javascript:;" class="btn red btn-outline fileinput-exists" data-dismiss="fileinput"> حذف تصویر </a>
+                                                                <div class="clearfix margin-top-10">
+                                                                    <span class="label label-danger">نکته مهم !</span> کاربرگرامی: لطفاً فایل مورد نظر خود را حداکثر تا 512 کیلوبایت و با پسوند (JPG, .PNG.) آپلود نمایید.
+                                                                </div>
+                                                                <div class="clearfix margin-top-10">
+                                                                    <span class="label label-info">راهنمایی !</span> در صورتی که می خواهید تصویر به درستی نمایش داده شود، می بایست فایل تصویر خود را به صورت دایره ای شکل آپلود نمایید.
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="margiv-top-10">
+                                                        <button type="submit" value="ذخیره تغییرات" id="blockui_sample_1_2" class="btn btn-outline sbold green-haze">تغییر اطلاعات کاربری<i class="fa fa-save ml-2"></i></button>
+                                                        <a href="/UserPanel" role="button" class="btn dark btn-outline"> انصراف </a>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <!-- END PRIVACY SETTINGS TAB -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+        </div>
+        <!-- END CONTAINER -->
+    </div>
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+<div class="page-footer">
+    <div class="page-footer-inner">
+        1399-2021 © فروشگاه اینترنتی کتاب فرهنگ بوک &nbsp;|&nbsp;
+        <a target="_blank" href="http://www.webnext.ir">توسعه و پشتیبانی</a>
+    </div>
+    <div class="scroll-to-top">
+        <i class="icon-arrow-up"></i>
+    </div>
+</div>
+<!-- END FOOTER -->

@@ -1,0 +1,9 @@
+@font-face {
+	font-family: "primary-font";
+	src: url("../../../../authentication/assets/fonts/ir-ft/eot/IRANSansWeb(FaNum)_Light.eot");
+	src: url("../../../../authentication/assets/fonts/ir-ft/eot/IRANSansWeb(FaNum)_Light.eot?#iefix") format("embedded-opentype"),
+		 url("../../../../authentication/assets/fonts/ir-ft/woff2/IRANSansWeb(FaNum)_Light.woff2") format("woff2"),
+		 url("../../../../authentication/assets/fonts/ir-ft/woff/IRANSansWeb(FaNum)_Light.woff") format("woff"),
+		 url("../../../../authentication/assets/fonts/ir-ft/ttf/IRANSansWeb(FaNum)_Light.ttf") format("truetype");
+	font-weight: 500;
+}

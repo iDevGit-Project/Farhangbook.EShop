@@ -1,0 +1,70 @@
+﻿@using MarketPlaceEshop.DataAccessLayer.Entities.SiteAPI
+@using MarketPlaceEshop.DataAccessLayer.Entities.Account
+@using MarketPlaceEshop.Application.Extentions
+@{
+    var siteSetting = ViewBag.siteSetting as SiteSetting;
+    var user = ViewBag.userPanelDashboard as User;
+}
+@{
+ViewData["Title"] = "خوش آمدید | داشبرد پنل کاربری";
+    Layout = "~/Areas/UserPanel/Views/Shared/_UserPanelLayout.cshtml";
+}
+
+<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+    <!-- BEGIN HEADER INNER -->
+    @await Component.InvokeAsync("UserPanel_TopBar")
+    <!-- END HEADER INNER -->
+</div>
+<!-- END HEADER -->
+
+<div class="clearfix"> </div>
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar-wrapper">
+        <!-- BEGIN SIDEBAR -->
+        @await Component.InvokeAsync("UserPanel_SideBar")
+        <!-- END SIDEBAR -->
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <div class="page-content">
+            <!-- BEGIN PAGE HEAD-->
+            <div class="page-head">
+                <!-- BEGIN PAGE TITLE -->
+                <div class="page-title">
+
+                </div>
+                <!-- END PAGE TITLE -->
+            </div>
+            <!-- END PAGE HEAD-->
+            <!-- BEGIN PAGE BREADCRUMB -->
+            <ul class="page-breadcrumb breadcrumb">
+                @await Component.InvokeAsync("UserPanel_BreadCrumb")
+            </ul>
+            <br />
+                @await Component.InvokeAsync("UserPanel_MainContent")
+            <!-- END PAGE BREADCRUMB -->
+        </div>
+
+        <!-- END CONTENT BODY -->
+    </div>
+    <!-- END CONTENT -->
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+<div class="page-footer">
+    <div class="page-footer-inner">
+        1399-2021 © فروشگاه اینترنتی کتاب فرهنگ بوک &nbsp;|&nbsp;
+        <a target="_blank" href="http://www.webnext.ir">توسعه و پشتیبانی</a>
+    </div>
+    <div class="scroll-to-top">
+        <i class="icon-arrow-up"></i>
+    </div>
+</div>
+<!-- END FOOTER -->

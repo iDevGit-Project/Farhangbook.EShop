@@ -1,0 +1,9 @@
+.vs
+MarketPlaceEshop.Application/bin
+MarketPlaceEshop.Application/obj
+MarketPlaceEshop.Common/bin
+MarketPlaceEshop.Common/obj
+MarketPlaceEshop.DataAccessLayer/bin
+MarketPlaceEshop.DataAccessLayer/obj
+MarketPlaceEshop.Web/bin
+MarketPlaceEshop.Web/obj

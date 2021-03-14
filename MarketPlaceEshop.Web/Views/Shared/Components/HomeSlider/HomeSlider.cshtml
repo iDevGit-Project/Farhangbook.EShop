@@ -1,0 +1,74 @@
+﻿@using MarketPlaceEshop.DataAccessLayer.Entities.SiteAPI
+@using MarketPlaceEshop.Web.AllExtensions
+@model List<MarketPlaceEshop.DataAccessLayer.Entities.SiteAPI.Slider>
+@*@{
+    var banners = ViewBag.banners as List<SiteBanner>;
+}*@
+
+@if (Model != null && Model.Any())
+{
+    <section class="slider_section slider_s_one mb-60 mt-20">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 col-md-12">
+                    <div class="swiper-container gallery-top">
+                        <div class="slider_area swiper-wrapper">
+                            @foreach (var slider in Model)
+                            {
+                                <div class="single_slider swiper-slide d-flex align-items-center" data-bgimg="@slider.GetSliderImageAddress()">
+                                    <div class="slider_content">
+                                        <h3>@slider.MainHeader</h3>
+                                        <h1>@slider.SecondHeader</h1>
+                                        <p>@slider.Description</p>
+                                        <a class="button" href="@slider.Link">بررسی محصول</a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <!-- Add Arrows -->
+
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="swiper-container gallery-thumbs">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                خرید کتاب با تخفیف
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="#"></a>
+                                خرید ویژه دانشجویان
+                            </div>
+                            <div class="swiper-slide">
+                                @*جدیدترین برنامه های موبایل*@
+                            </div>
+                            <div class="swiper-slide">
+                                @*جدیدترین مدل های گوشی سال 2019*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s_banner col-lg-3 col-md-12">
+                    <!--banner area start-->
+                    <div class="sidebar_banner_area">
+                        <figure class="single_banner">
+                            <div class="banner_thumb">
+                                <a href="#"><img src="assets/img/bg/banner1.jpg" alt=""></a>
+                            </div>
+                        </figure>
+                        <figure class="single_banner">
+                            <div class="banner_thumb">
+                                <a href="#"><img src="assets/img/bg/banner2.jpg" alt=""></a>
+                            </div>
+                        </figure>
+                        <figure class="single_banner">
+                            <div class="banner_thumb">
+                                <a href="#"><img src="assets/img/bg/banner3.jpg" alt=""></a>
+                            </div>
+                        </figure>
+                    </div>
+                    <!--banner area end-->
+                </div>
+            </div>
+        </div>
+    </section>
+}

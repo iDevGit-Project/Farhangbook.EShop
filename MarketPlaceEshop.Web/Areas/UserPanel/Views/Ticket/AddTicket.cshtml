@@ -1,0 +1,142 @@
+﻿@model MarketPlaceEshop.DataAccessLayer.DataTransferObjectDTOs.Contact.DTO_AddTicketViewModel
+@using MarketPlaceEshop.DataAccessLayer.Entities.Contact
+
+@{
+    ViewData["Title"] = "ارسال تیکت جدید";
+    Layout = "~/Areas/UserPanel/Views/Shared/_UserPanelLayout.cshtml";
+}
+
+@section scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+    <!-- BEGIN HEADER INNER -->
+    @await Component.InvokeAsync("UserPanel_TopBar")
+    <!-- END HEADER INNER -->
+</div>
+<!-- END HEADER -->
+<!-- BEGIN HEADER & CONTENT DIVIDER -->
+<div class="clearfix"> </div>
+<!-- END HEADER & CONTENT DIVIDER -->
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar-wrapper">
+        <!-- BEGIN SIDEBAR -->
+        @await Component.InvokeAsync("UserPanel_SideBar")
+        <!-- END SIDEBAR -->
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <!-- BEGIN CONTENT BODY -->
+        <div class="page-content">
+            <!-- BEGIN PAGE HEAD-->
+            <div class="page-head">
+                <!-- BEGIN PAGE TITLE -->
+                <div class="page-title">
+
+                </div>
+                <!-- END PAGE TITLE -->
+            </div>
+            <!-- END PAGE HEAD-->
+            <!-- BEGIN PAGE BREADCRUMB -->
+            <ul class="page-breadcrumb breadcrumb">
+                <li>
+                    <a role="button">تنظیمات کاربری</a>
+                    <i class="fa fa-circle"></i>
+                </li>
+                <li>
+                    <a role="button">مدیریت تیکت ها</a>
+                    <i class="fa fa-circle"></i>
+                </li>
+                <li>
+                    <span class="active">تیکت جدید</span>
+                </li>
+            </ul>
+            <!-- END PAGE BREADCRUMB -->
+            <!-- BEGIN PAGE BASE CONTENT -->
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    @*<div class="note note-success">
+                            <h4></h4>
+                        </div>*@
+                    <!-- BEGIN REGIONAL STATS PORTLET-->
+                    <div class="portlet light bordered">
+                        <div class="portlet-title">
+                            <div class="caption caption-md">
+                                <span class="caption-subject font-green-sharp bold uppercase">ارسال تیکت</span>
+                            </div>
+                            <div class="actions">
+                                <a href="/userpanel" role="button" class="btn dark btn-outline"> بازگشت </a>
+                            </div>
+                        </div>
+
+                        <div class="portlet-body">
+                            <div id="region_statistics_content" class="display-none">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <form asp-area="UserPanel" asp-controller="Ticket" asp-action="AddTicket">
+                                                    @*<partial name="_AuthenticationCaptchaInput" />*@
+
+                                                    <div class="form-group">
+                                                        <label class="text-bold-700">عنوان تیکت</label>
+                                                        <input type="text" asp-for="Title" autofocus="autofocus" class="form-control" />
+                                                        <span asp-validation-for="Title" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="text-bold-700">بخش مورد نظر</label>
+                                                        <select asp-for="TicketSection" asp-items="@(Html.GetEnumSelectList<TicketSection>())" class="bs-select form-control"></select>
+                                                        <span asp-validation-for="TicketSection" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="text-bold-700">اولویت ارسال</label>
+                                                        <select asp-for="TicketPriority" asp-items="@(Html.GetEnumSelectList<TicketPriority>())" class="bs-select form-control"></select>
+                                                        <span asp-validation-for="TicketPriority" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="text-bold-700">متن پیام شما</label>
+                                                        <textarea asp-for="Text" class="form-control" rows="3" placeholder="متن خود را وارد نمایید"></textarea>
+                                                        <span asp-validation-for="Text" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="margiv-top-10">
+                                                        <button type="submit" value="ثبت اطلاعات" class="btn btn-outline green-haze"> ارسال تیکت <i class="fa fa-send ml-2"></i></button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END REGIONAL STATS PORTLET-->
+                        </div>
+
+                    </div>
+
+                    <!-- END PAGE BASE CONTENT -->
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+        </div>
+        <!-- END CONTAINER -->
+    </div>
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+<div class="page-footer">
+    <div class="page-footer-inner">
+        1399-2021 © فروشگاه اینترنتی کتاب فرهنگ بوک &nbsp;|&nbsp;
+        <a target="_blank" href="http://www.webnext.ir">توسعه و پشتیبانی</a>
+    </div>
+    <div class="scroll-to-top">
+        <i class="icon-arrow-up"></i>
+    </div>
+</div>
+<!-- END FOOTER -->

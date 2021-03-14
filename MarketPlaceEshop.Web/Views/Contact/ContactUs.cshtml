@@ -1,0 +1,96 @@
+﻿@model MarketPlaceEshop.DataAccessLayer.DataTransferObjectDTOs.Contact.DTO_CreateContactUs
+@{
+    ViewData["Title"] = "تماس با ما";
+    Layout = "~/Views/Shared/_SiteMainLayout.cshtml";
+}
+@section scripts
+{
+    <!--map js code here-->
+    <script src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.22&key=AIzaSyAEn4c_T1rFt7ltf_oNavnjND8dDPm4KQs&language=fa"></script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script src="~/assets/js/map.js"></script>
+
+    <partial name="_ValidationScriptsPartial" />
+    <partial name="_AuthenticationCaptchaScripts" />
+}
+<!--header area start-->
+
+<!--header area end-->
+
+<!--breadcrumbs area start-->
+<div class="breadcrumbs_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content">
+                    <ul>
+                        <li><a href="/">خانه</a></li>
+                        <li>تماس با ما</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumbs area end-->
+
+<div class="contact_page_bg">
+    <!--contact map start-->
+    <div class="contact_map">
+        <div class="map-area">
+            <div id="googleMap"></div>
+        </div>
+    </div>
+    <!--contact map end-->
+    <div class="container">
+        <!--contact area start-->
+        <div class="contact_area">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="contact_message content">
+                        <h3>تماس با ما</h3>
+                        <p>کتابفروشی فرهنگ از سال <strong> 1384 </strong> در زمینه کتاب های حقوقی، عمومی، دانشگاهی و کودک فعالیت خود را آغاز کرده است.</p>
+                        <ul>
+                            <li><i class="fa fa-fw fa-address-card"></i> شیراز، خیابان مشیرفاطمی، ابتدای معدل، رو به روی هنرستان اختر معدل، ساختمان 110، طبقه زیرزمین</li>
+                            <li><i class="fa fa-fw fa-calendar-times-o"></i> <a href="#">شنبه تا پنجشنبه : <strong> 08:30 </strong> صبح - <strong> 22:00 </strong> شب </a></li>
+                            <li><i class="fa fa-fw fa-phone"></i> <span class="ltr-text">(+98) 71 32 33 52 96</span></li>
+                            <li><i class="fa fa-fw fa-envelope-o"></i> <a href="#">Info@farhangbook.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="contact_message form">
+                        <h3>با ما در میان بگذارید</h3>
+                        <form method="post" asp-controller="Contact" asp-action="ContactUs">
+                            <partial name="_AuthenticationCaptchaInput" />
+
+                            <p>
+                                <input type="text" asp-for="FullName" autofocus="autofocus" placeholder="نام و نام خانوادگی">
+                                <span asp-validation-for="FullName" class="text-danger"></span>
+                            </p>
+                            <p>
+                                <input type="text" asp-for="Mobile" placeholder="موبایل" dir="ltr">
+                                <span asp-validation-for="Mobile" class="text-danger"></span>
+                            </p>
+                            <p>
+                                <input type="email" asp-for="Email" placeholder="ایمیل" dir="ltr">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </p>
+                            <p>
+                                <input type="text" asp-for="Subject" placeholder="موضوع پیام" dir="ltr">
+                                <span asp-validation-for="Subject" class="text-danger"></span>
+                            </p>
+                            <p>
+                                <textarea type="text" asp-for="TextMessage" placeholder="متن پیام خود را وارد نمایید"></textarea>
+                                <span asp-validation-for="TextMessage" class="text-danger"></span>
+                            </p>
+                            <button type="submit">ارسال پیام به مدیریت</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--contact area end-->
+    </div>
+</div>
+

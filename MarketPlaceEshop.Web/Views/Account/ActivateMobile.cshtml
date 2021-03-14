@@ -1,0 +1,68 @@
+﻿@model MarketPlaceEshop.DataAccessLayer.DataTransferObjectDTOs.Account.DTO_ActivateMobile
+@{
+    ViewData["Title"] = "فعالسازی موبایل";
+    Layout = "~/Views/Shared/_AuthenticationLayout.cshtml";
+}
+@section scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <partial name="_AuthenticationCaptchaScripts" />
+}
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+            <!-- forgot password start -->
+            <section class="row flexbox-container">
+                <div class="col-xl-7 col-md-9 col-10  px-0">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        ثبت نام شما در <strong> فروشگاه اینترنتی کتاب فرهنگ بوک </strong> با موفقیت انجام شد. کد دریافتی خود را جهت <strong> فعالسازی موبایل </strong> وارد نمایید.
+                    </div>
+                    <div class="card bg-authentication mb-0">
+                        <div class="row m-0">
+                            <!-- left section-forgot password -->
+                            <div class="col-md-6 col-12 px-0">
+                                <div class="card disable-rounded-right mb-0 p-2 h-100 d-flex justify-content-center">
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="divider">
+                                                <div class="divider-text text-uppercase text-muted">
+                                                    <small>فعالسازی موبایل</small>
+                                                </div>
+                                            </div>
+                                            <form method="post" asp-controller="Account" asp-action="ActivateMobile">
+                                                <partial name="_AuthenticationCaptchaInput" />
+
+                                                <div class="form-group mb-2">
+                                                    <label class="text-bold-700" for="exampleInputEmailPhone1">موبایل</label>
+                                                    <input type="text" asp-for="MobileActiveCode" class="form-control text-left" autofocus="autofocus" placeholder="کد دریافتی از سامانه را وارد نمایید" dir="ltr">
+                                                    <span asp-validation-for="MobileActiveCode" class="text-danger"></span>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary glow position-relative w-100">فعالسازی تلفن همراه<i id="icon-arrow" class="bx bx-lock-open"></i></button>
+                                            </form>
+                                            <hr>
+                                        </div>
+                                        <div class="text-center"><a href="/">بازگشت به صفحه اصلی</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- right section image -->
+                            <div class="col-md-6 d-md-block d-none text-center align-self-center p-3">
+                                <div class="card-content">
+                                    <img class="img-fluid" src="/authentication/assets/images/pages/maintenance-2.png" alt="فعالسازی موبایل">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- forgot password ends -->
+        </div>
+    </div>
+</div>
+<!-- END: Content-->

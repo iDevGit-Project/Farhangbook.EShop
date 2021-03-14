@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="fa" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@ViewData["Title"] | فروشگاه اینترنتی کتاب فرهنگ بوک</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <partial name="_SiteReferencesCSS" />
+    @RenderSection("styles", false)
+</head>
+
+<body>
+
+    <!--Offcanvas menu area start-->
+    @await Component.InvokeAsync("CanvasMenu")
+    <!--Offcanvas menu area end-->
+    <!--header area start-->
+    @await Component.InvokeAsync("SiteHeader")
+    <!--header area end-->
+
+    @RenderBody()
+
+    <!--footer area start-->
+    @await Component.InvokeAsync("SiteFooter")
+    <!--footer area end-->
+
+    @await Component.InvokeAsync("NToastNotify")
+
+</body>
+<partial name="_SiteReferencesJS" />
+@RenderSection("scripts", false)
+</html>

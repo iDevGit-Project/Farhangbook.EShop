@@ -1,0 +1,91 @@
+﻿@model MarketPlaceEshop.DataAccessLayer.DataTransferObjectDTOs.Account.DTO_LoginUser
+
+@{
+    ViewData["Title"] = "ورود به حساب کاربری";
+    Layout = "~/Views/Shared/_AuthenticationLayout.cshtml";
+}
+@section scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <partial name="_AuthenticationCaptchaScripts" />
+}
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+            <!-- login page start -->
+            <section id="auth-login" class="row flexbox-container">
+                <div class="col-xl-8 col-11">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        کاربرگرامی : درصورت فراموشی کلمه عبور، بر روی <strong>(بازیابی کلمه عبور)</strong> کلیک نمایید.
+                    </div>
+                    <div class="card bg-authentication mb-0">
+                        <div class="row m-0">
+                            <!-- left section-login -->
+                            <div class="col-md-6 col-12 px-0">
+                                <div class="card disable-rounded-right mb-0 p-2 h-100 d-flex justify-content-center">
+                                    <div class="card-content">
+                                        <div class="card-body">
+                                            <div class="divider">
+                                                <div class="divider-text text-uppercase text-muted">
+                                                    <small>ورود به پنل کاربری</small>
+                                                </div>
+                                            </div>
+                                            <form method="post" asp-controller="Account" asp-action="Login">
+                                                <partial name="_AuthenticationCaptchaInput" />
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6 mb-50">
+                                                        <label class="text-bold-700">شماره همراه</label>
+                                                        <input type="text" asp-for="Mobile" class="form-control text-left" autofocus="autofocus" dir="ltr">
+                                                        <span asp-validation-for="Mobile" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="form-group col-md-6 mb-50">
+                                                        <label class="text-bold-700">کلمه عبور</label>
+                                                        <input type="password" asp-for="Password" class="form-control text-left" dir="ltr">
+                                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group d-flex flex-md-row flex-column justify-content-between align-items-center">
+                                                    <div class="text-left">
+                                                        <div class="checkbox checkbox-sm">
+                                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                            <label class="checkboxsmall" for="exampleCheck1"><small>مرا به خاطر بسپار</small></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-right line-height-2"><a asp-controller="Account" asp-action="ForgotPassword" class="card-link"><small style="border-bottom: 1px dashed #197ae3;">بازیابی کلمه عبور</small></a></div>
+                                                </div>
+                                                @*<button type="submit" class="btn btn-primary glow w-100 position-relative"> ورود <span class="spinner-border spinner-border-md"></span></button>*@
+                                                <button type="submit" class="btn btn-primary glow w-100 position-relative"> ورود به سیستم </button>
+                                            </form>
+                                            <hr>
+                                            <div class="text-center"><strong class="mr-25"> حساب کاربری ندارم! </strong><a href="/Register"><small style="border-bottom: 1px dashed #197ae3;"> ثبت نام </small></a></div>
+                                        </div>
+                                        <div class="form-group align-items-center mb-2">
+                                            <div class="text-center">
+                                                <div class="ml-3 ml-md-2 mr-1"><a href="/" class="card-link btn btn-outline-primary text-nowrap">بازگشت به صفحه اصلی</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- right section image -->
+                            <div class="col-md-6 d-md-block d-none text-center align-self-center p-3">
+                                <div class="card-content">
+                                    <img class="img-fluid" src="/authentication/assets/images/pages/login.png" alt="ورود به پنل کاربری">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- login page ends -->
+        </div>
+    </div>
+</div>
+
